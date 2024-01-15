@@ -4,6 +4,7 @@ const getAllUsers = () => {
    return usersController.findAll()
 }
 const createUser = (user) => {
+   // TODO- add id to user using Math function
    if (!user?.firstName) throw ''
    return usersController.create(user)
 }

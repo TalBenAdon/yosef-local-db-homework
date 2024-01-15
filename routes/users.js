@@ -12,12 +12,23 @@ router.get('/', (req, res) => {
    }
 })
 
-router.post('/', (req, res) => {
+router.put('/:id', (req, res) => {
    try {
-      const result = userService.createUser(req.body)
+      const { params: { id }, query, body } = req
+      const result = userService.updateUser(id, body)
+      throw ({ status: 404, msg: 'go away!!!' })
       res.send(result)
    } catch (error) {
-      res.status(500).send(error || 'something went wrong')
+      console.log(error);
+      res.status(error.status || 500).send(error?.msg || 'something went wrong')
+   }
+})
+router.put('/new', (req, res) => {
+   try {
+      const result = true
+      res.send(result)
+   } catch (error) {
+      res.status(500).send(error?.message || error || 'something went wrong')
    }
 })
 
