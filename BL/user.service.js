@@ -9,6 +9,12 @@ const createUser = (user) => {
    return usersController.create(user)
 }
 
+const getUserById = (user) => {
+   if (!user.id) throw "user does not have id"
+
+
+
+}
 // TODO
 // get one user by id
 // check if there is id (and throw error if not)
@@ -33,4 +39,4 @@ const createUser = (user) => {
 
 // TODO
 // add here the created functions
-module.exports = {getAllUsers, createUser}
+module.exports = { getAllUsers, createUser }

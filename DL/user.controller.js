@@ -18,7 +18,12 @@ const create = (newUser) => {
    return 'created!'
 }
 
-
+const getOne = (id) => {
+   const allData = JSON.parse(fs.readFileSync('./users.json'))
+   let foundUser = allData.find(user => user.id === id)
+   if (!foundUser) return null
+   return foundUser
+}
 // TODO
 // getOne
 //  user by id
